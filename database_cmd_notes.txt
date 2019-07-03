@@ -1,0 +1,73 @@
+// To open mysql in cmd write:    "mysql;"
+
+
+// the already exsisting "Name:root" and "password:root" for mac and for window password is empty.
+
+
+// To login toa specific user of database we use cmd: "mysql -u username -p (clickenter) password;".
+
+
+// To logout from the database: ctr+c or exit;
+
+
+// To change password we will have to first login and then:"set password for username(root)@host(localhost) = password('anypassword');"  //password is a function
+
+ 
+// To show databases of specific logined account:"show databases;".
+
+// In order to create a database in any account: "CREATE DATABASE name(name of database);"
+
+
+// In order to use a specific database: "USE name(name of database);"
+
+// In order to show the tables in a specific database:"SHOW TABLES;"
+
+//in order to create a table: " CREATE TABLE users(
+    id INT AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email_address VARCHAR(100) NOT NULL,
+    PRIMARY KEY (id));
+
+
+// In order to show the format of the table that what is data type of table: "DESCRIBE name(name of table)";
+
+
+// Inserting multiple data in the table:
+INSERT INTO table_name(id, first_name, last_name, email_address)
+values('abubakar', 'jabbar', 'abubakarprince56@gmail.com'),
+('wahab', 'ali', 'wahabali@gmail.com'),
+('ali', 'muhammad', 'alimuhammad@gmail.com');
+
+
+//extracting data to show from the table:
+SELECT first_name, last_name
+from table_name
+order by id asc;
+
+SELECT first_name, last_name
+from table_name
+order by id desc;
+
+
+// Deleting rows from the table:
+"DELETE from table_name
+where id =1;
+
+DELETE from table_name
+where last_name'abubakar';"
+
+
+//updating row
+update posts SET auther_id=2 where id=1;
+ update posts SET title='new title', body='new body of post' WHERE id=1;
+ //updating columns name:
+ ALTER TABLE posts CHANGE title subject varchar(150);
+
+//Showing data by joining two tables
+select * from posts INNER JOIN users ON users.id=posts.auther_id;
+select title, body , first_name, last_name from posts INNER JOIN users ON users.id =posts.auther_id;
+
+
+
+
